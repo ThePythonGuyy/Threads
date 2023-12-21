@@ -1,0 +1,133 @@
+/* Font Sizes */
+@mixin heading1-bold {
+    font-size: 36px;
+    line-height: 140%;
+    font-weight: 700;
+  }
+  
+  @mixin heading1-semibold {
+    font-size: 36px;
+    line-height: 140%;
+    font-weight: 600;
+  }
+  
+  @mixin heading2-bold {
+    font-size: 30px;
+    line-height: 140%;
+    font-weight: 700;
+  }
+  
+  @mixin heading2-semibold {
+    font-size: 30px;
+    line-height: 140%;
+    font-weight: 600;
+  }
+  
+  @mixin heading3-bold {
+    font-size: 24px;
+    line-height: 140%;
+    font-weight: 700;
+  }
+  
+  @mixin heading4-medium {
+    font-size: 20px;
+    line-height: 140%;
+    font-weight: 500;
+  }
+  
+  @mixin body-bold {
+    font-size: 18px;
+    line-height: 140%;
+    font-weight: 700;
+  }
+  
+  @mixin body-semibold {
+    font-size: 18px;
+    line-height: 140%;
+    font-weight: 600;
+  }
+  
+  @mixin body-medium {
+    font-size: 18px;
+    line-height: 140%;
+    font-weight: 500;
+  }
+  
+  @mixin body-normal {
+    font-size: 18px;
+    line-height: 140%;
+    font-weight: 400;
+  }
+  
+  @mixin body1-bold {
+    font-size: 18px;
+    line-height: 140%;
+    font-weight: 700;
+  }
+  
+  @mixin base-regular {
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 400;
+  }
+  
+  @mixin base-medium {
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 500;
+  }
+  
+  @mixin base-semibold {
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 600;
+  }
+  
+  @mixin base1-semibold {
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 600;
+  }
+  
+  @mixin small-regular {
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 400;
+  }
+  
+  @mixin small-medium {
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 500;
+  }
+  
+  @mixin small-semibold {
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 600;
+  }
+  
+  @mixin subtle-medium {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+  }
+  
+  @mixin subtle-semibold {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+  }
+  
+  @mixin tiny-medium {
+    font-size: 10px;
+    line-height: 140%;
+    font-weight: 500;
+  }
+  
+  @mixin x-small-semibold {
+    font-size: 7px;
+    line-height: 9.318px;
+    font-weight: 600;
+  }
+  

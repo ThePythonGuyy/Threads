@@ -1,0 +1,29 @@
+@import "./_variables.scss";
+@import "./fontStyle";
+
+.container {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 20px 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: red;
+  justify-content: end;
+
+  h1 {
+    @include heading2-bold;
+    color: $light-1;
+  }
+
+  p {
+    @include base-regular;
+    color: $light-2;
+  }
+}
+
+.profile_container {
+  padding: 10px;
+  margin-top: 9px;
+  background-color: $dark-2;
+}

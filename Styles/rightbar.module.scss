@@ -1,0 +1,32 @@
+@import "./_variables.scss";
+@import "./fontStyle";
+
+.rightsideBar {
+  position: sticky;
+  right: 0;
+  top: 0;
+  z-index: $z-bar;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  height: 100vh;
+  width: fit-content;
+  justify-content: space-between;
+  gap: 1.5vh;
+  overflow: auto;
+  border-left: 1px solid $dark-4;
+  padding: 0 10px;
+  padding-top: 28px;
+  background-color: $dark-2;
+}
+
+.block_container {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  width: fit-content;
+  h3 {
+    @include heading4-medium;
+    color: $light-1;
+  }
+}

@@ -1,0 +1,55 @@
+@import "./_variables.scss";
+
+.bottomBar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: $glassmorphism;
+}
+
+.bottomBar_container {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: space-between;
+    // padding: 0 1vw;
+}
+
+.menu {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-around;
+    width: 15%;
+    padding: 5px 8px;
+    border-radius: 10px;
+    
+    p {
+        font-size: 12px;
+    }
+}
+
+.menuActive {
+    background-color: $violet-1;
+}
+
+@media all and (max-width: 768px) and (max-height: 1024px) and (orientation:portrait) {
+    .bottomBar {
+        display: block;
+    }
+}
+
+@media all and (max-width: 640px) and (max-height: 1024px) and (orientation:portrait) {
+    .bottomBar {
+        display: block;
+    }
+
+    .menu {
+        p {
+            display: none;
+        }
+    }
+}
+@media all and (max-width: 1024px) and (max-height: 768px) and (orientation:landscape) {}
