@@ -1,0 +1,87 @@
+@import "./_defaults.scss";
+@import "./_fontStyle.scss";
+@import "./_variables.scss";
+
+.form_container {
+  @include flex-col($algn: flex-start);
+  gap: 40px;
+  width: 100%;
+  max-width: 100% !important;
+  padding: 0 2px;
+}
+
+
+.formItem {
+  @include flex-col($algn: flex-start);
+  gap: 10px;
+  width: 100%;
+  
+}
+
+
+//profile image
+
+.profilePhoto {
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.form_imageControl {
+  // flex: 1;
+  @include base-semibold;
+  color: rgb(229, 231, 235);
+  background-color: transparent !important;
+}
+
+.form_imageLabel {
+    @include flex-row;
+    height: 96px;
+    width: 96px;
+    border-radius: 50%;
+    background-color: $dark-4 !important;
+}
+
+.form_imageInput {
+    cursor: pointer !important;
+    border: none !important;
+    background: transparent !important;
+    outline: none !important;
+    color: #3490dc !important;
+}
+
+//text fields
+
+.form_textLabel {
+    @include base-semibold;
+    color: $light-2;
+    width: 12%;
+    padding-left: 5px;
+    letter-spacing: 1.3px;
+}
+
+.form_textInput {
+    border: 1px solid $dark-4;
+    background-color: $dark-3;
+    color: $light-1;
+    padding: 7px 8px;
+    width: 95% !important;
+  
+    outline: none !important;
+    transition: outline 1s ease !important;
+    &:focus {
+      outline: 1px solid $light-2 !important;
+    }
+}
+
+.form_textControl {
+  flex: 1;
+  max-width: 100%;
+  @include base-semibold;
+  color: rgb(229, 231, 235);
+  border-radius: 10px;
+}
+
+
+
+
+

@@ -1,0 +1,17 @@
+
+
+@mixin flex-row($wrap: nowrap, $jc: center, $algn: center) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: $wrap;
+  align-items: $algn;
+  justify-content: $jc;
+}
+
+@mixin flex-col($wrap: nowrap, $jc: center, $algn: center) {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: $wrap;
+  align-items: $algn;
+  justify-content: $jc;
+}

@@ -2,13 +2,13 @@
 @import "./fontStyle";
 
 .container {
-  width: 100%;
-  max-width: 768px;
+  width: 70%;
+  max-width: 640px;
   margin: 0 auto;
   padding: 20px 10px;
   display: flex;
   flex-flow: column nowrap;
-  background-color: red;
+  // background-color: red;
   justify-content: end;
 
   h1 {
@@ -19,11 +19,14 @@
   p {
     @include base-regular;
     color: $light-2;
+    margin-top: -7px;
   }
 }
 
 .profile_container {
-  padding: 10px;
+  padding: 20px 25px;
   margin-top: 9px;
   background-color: $dark-2;
+  border-radius: 10px;
+  margin-top: 20px;
 }

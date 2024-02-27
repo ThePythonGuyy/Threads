@@ -1,0 +1,8 @@
+@import "../Styles/_variables.scss";
+@import "../Styles/defaults.scss";
+@import "../Styles/fontStyle.scss";
+
+.thread_container {
+    @include flex-col;
+    
+}

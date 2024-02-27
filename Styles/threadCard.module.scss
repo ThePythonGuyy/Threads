@@ -1,0 +1,85 @@
+@import "../Styles/_variables.scss";
+@import "../Styles/_defaults.scss";
+@import "../Styles/_fontStyle.scss";
+
+.card_container {
+  @include flex-col;
+  background-color: $dark-2;
+  padding: 16px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.c1 {
+  @include flex-row($algn: flex-start, $jc: space-between);
+}
+
+.c2 {
+  @include flex-row($algn: flex-start);
+  flex: 1;
+  gap: 16px;
+  height: fit-content;
+  position: relative;
+}
+
+.c3 {
+  @include flex-col;
+  position: relative;
+  align-self: stretch;
+}
+
+.profileImg {
+  position: relative;
+  height: 3rem;
+  width: 3rem;
+}
+
+.card_bar {
+  width: 2px;
+  background-color: $bar-color;
+  border-radius: 50%;
+  flex-grow: 1;
+}
+
+.c4 {
+  width: 100%;
+  @include flex-col($algn: flex-start);
+  flex: 1;
+}
+
+.authorName {
+  width: fit-content;
+  h4 {
+    @include base-semibold;
+    color: $light-1 !important;
+    cursor: pointer;
+  }
+}
+
+.thread_content {
+  margin-top: 1rem;
+  @include small-regular;
+  color: $light-2;
+}
+
+.threadResponse_container {
+  @include flex-col;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.threadResponse {
+  @include flex-row;
+  gap: 0.75rem;
+
+  img {
+    object-fit: contain;
+    cursor: pointer;
+  }
+}
+
+.noOfComments {
+  margin-top: 0.25rem;
+  @include subtle-medium;
+  color: $gray-1;
+}

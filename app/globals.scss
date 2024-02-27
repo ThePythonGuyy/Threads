@@ -1,4 +1,6 @@
 @import "../Styles/_variables.scss";
+@import "../Styles/defaults.scss";
+@import "../Styles/fontStyle.scss";
 
 :root {
 
@@ -34,10 +36,31 @@ a{
 
 .main-container {
   flex: 1;
+  padding: 2vh 1.5vw;
   background-color: $dark-1;
 }
 
-.main-container-children {
-  // width: auto;
+.form_submitButton {
+  @include base-regular;
+  @include flex-row;
+  margin: 0 auto;
+  background-color: $violet-1;
+  width: 95%;
+  border-radius: 5px;
+  color: $light-1;
+  outline: none;
+  border: none;
+  opacity: 0.6;
+  transition: opacity 0.075s ease-out;
+  font-size: 12px;
+  padding: 5px 0;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
+.head-text {
+  @include heading2-bold;
+  color: $light-1;
+}

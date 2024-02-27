@@ -1,0 +1,17 @@
+@import "./_defaults.scss";
+@import "./_fontStyle.scss";
+@import "./_variables.scss";
+
+.threadContainer {
+  width: 100%;
+  padding: 1vw 1vh;
+}
+
+.head {
+  @include heading2-bold;
+  color: $light-1;
+}
+
+.postThread_container {
+    width: 50%;
+}
