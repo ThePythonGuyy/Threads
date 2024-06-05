@@ -58,21 +58,41 @@ export default function ThreadCard({
               <h4>{author.name}</h4>
             </Link>
             <p className={styles.thread_content}>{content}</p>
-           <div className={styles.threadResponse_container}>
-            <div className={styles.threadResponse}>
-              <Image src='/assets/heart-gray.svg' alt="Like" width={24} height={24} />
-             <Link href={`/thread/${id}`}>
-             <Image src='/assets/reply.svg' alt="Comment" width={24} height={24} />
-
-             </Link>
-              <Image src='/assets/repost.svg' alt="repost" width={24} height={24} />
-              <Image src='/assets/share.svg' alt="Share" width={24} height={24} />
-
+            <div className={styles.threadResponse_container}>
+              <div className={styles.threadResponse}>
+                <Image
+                  src="/assets/heart-gray.svg"
+                  alt="Like"
+                  width={24}
+                  height={24}
+                />
+                <Link href={`/thread/${id}`}>
+                  <Image
+                    src="/assets/reply.svg"
+                    alt="Comment"
+                    width={24}
+                    height={24}
+                  />
+                </Link>
+                <Image
+                  src="/assets/repost.svg"
+                  alt="repost"
+                  width={24}
+                  height={24}
+                />
+                <Image
+                  src="/assets/share.svg"
+                  alt="Share"
+                  width={24}
+                  height={24}
+                />
+              </div>
+              {isComment && comments.length > 0 && (
+                <Link href={`/thread/${id}`}>
+                  <p className={styles.noOfComments}>{comments.length}</p>
+                </Link>
+              )}
             </div>
-            {isComment && comments.length > 0 && (
-              <p className={styles.noOfComments}>{comments.length}</p>
-            )}
-           </div>
           </section>
         </div>
       </div>

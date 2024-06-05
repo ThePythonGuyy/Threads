@@ -11,7 +11,7 @@ export default async function Home() {
       <h1 className="head-text">Home</h1>
       <div className={styles.thread_container}>
         {result.threads.length === 0 ? (
-          <p>dsaf</p>
+          <p>No threads found</p>
         ) : (
           <>
             {result.threads.map((thread) => (

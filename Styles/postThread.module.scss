@@ -49,3 +49,55 @@
     outline: 1px solid $light-2 !important;
   }
 }
+
+.commentForm_container {
+  @include flex-row;
+  gap: 40px;
+  width: 100%;
+  max-width: 100% !important;
+  padding: 0 2px;
+  margin-top: 165px;
+}
+
+.commentForm_textControl{
+  @include base-semibold;
+  border: 1px solid $dark-4;
+  background-color: $dark-3;
+  color: $light-1;
+  width: 100%;
+  margin: 0 auto;
+  outline: none;
+  border: none;
+  &:focus {
+    outline: none !important;
+    border: none !important;
+  }
+
+  background-color: $dark-1;
+
+  .form_textInput{
+    padding-left: 10px !important;
+    display: none;
+  }
+}
+
+.commentForm_profilePhoto{
+  object-fit: cover;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  margin: auto 0;
+}
+
+.commentFormItem {
+  @include flex-row($algn: center);
+  width: 100%;
+}
+
+.commentSubmit{
+  width: 15%;
+  border-radius: 200px;
+  padding: 10px 6px;
+  // font-weight: 700;
+  @include small-semibold;
+}

@@ -1,8 +1,6 @@
-
-
 "use client";
 
-import { ThreadValidation } from "@/lib/validations/thread";
+import { CommentValidation } from "@/lib/validations/thread";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -15,75 +13,87 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import { Textarea } from "../ui/textarea";
+// import { Textarea } from "../ui/textarea";
 import styles from "@/Styles/postThread.module.scss";
 import { Button } from "../ui/button";
 import { raleway } from "@/app/fonts";
 import { z } from "zod";
 import { createThread } from "@/lib/actions/thread.action";
+import { Input } from "../ui/input";
+import Image from "next/image";
 
-
- 
 interface Props {
-    threadId: string;
-    currentUserImg: string;
-    currentUserId: string;
+  threadId: string;
+  currentUserImg: string;
+  currentUserId: string;
 }
 
-export default function Comment({threadId, currentUserImg, currentUserId}: Props) {
-    const router = useRouter();
-    const pathname = usePathname();
-  
-    const form = useForm({
-      resolver: zodResolver(ThreadValidation),
-      defaultValues: {
-        thread: "",
-        accountId: userId,
-      },
-    });
-  
-    const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
-      console.log(values);
-      await createThread({
-        text: values.thread,
-        author: userId,
-        communityId: null,
-        path: pathname,
-      });
-  
-      router.push('/');
-    };
-  
-    return (
+export default function Comment({
+  threadId,
+  currentUserImg,
+  currentUserId,
+}: Props) {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const form = useForm({
+    resolver: zodResolver(CommentValidation),
+    defaultValues: {
+      thread: "",
+    },
+  });
+
+  const onSubmit = async (values: z.infer<typeof CommentValidation>) => {
+    // console.log(values);
+    // await createThread({
+    //   text: values.thread,
+    //   author: userId,
+    //   communityId: null,
+    //   path: pathname,
+    // });
+    // router.push('/');
+  };
+
+  return (
     <Form {...form}>
-    <form
-      onSubmit={form.handleSubmit(onSubmit)}
-      className={styles.form_container}
-    >
-      <FormField
-        control={form.control}
-        name="thread"
-        render={({ field }) => (
-          <FormItem className={styles.formItem}>
-            <FormLabel className={styles.form_textLabel}>Content</FormLabel>
-            <FormControl className={styles.form_textControl}>
-              <Textarea
-                className={styles.form_textInput}
-                rows={15}
-                {...field}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <Button
-        type="submit"
-        className={`form_submitButton ${raleway.className}`}
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className={styles.commentForm_container}
       >
-        Submit
-      </Button>
-    </form>
-  </Form>
-  )
+        <FormField
+          control={form.control}
+          name="thread"
+          render={({ field }) => (
+            <FormItem className={styles.commentFormItem}>
+              <FormLabel className={styles.commentForm_Label}>
+                <Image
+                src={currentUserImg}
+                alt="Profile Image"
+                width={48}
+                height={48}
+                className={styles.commentForm_profilePhoto}
+                />
+              </FormLabel>
+              <FormControl className={styles.commentForm_textControl}>
+                <Input
+                  className={styles.form_textInput}
+                  style={{paddingLeft: '30px'}}
+                  type="text"
+                  placeholder="  Comment"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button
+          type="submit"
+          className={`form_submitButton ${raleway.className} ${styles.commentSubmit}`}
+        >
+          Reply
+        </Button>
+      </form>
+    </Form>
+  );
 }
