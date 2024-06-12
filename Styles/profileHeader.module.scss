@@ -1,0 +1,55 @@
+@use 'index' as *;
+
+.profileContainer {
+  @include flex-col($jc: flex-start);
+  width: 100%;
+  // background-color: red
+}
+
+.userInfo {
+  @include flex-col($algn: start, $jc: space-between);
+  margin-right: auto;
+  // background-color: pink;
+  height: 90px;
+}
+
+.profile {
+  @include flex-row($jc: flex-start);
+}
+
+.profileImgCont {
+  max-width: $profileSize;
+  max-height: $profileSize;
+}
+
+.profileImg {
+  object-fit: cover;
+  border-radius: 50% !important;
+}
+
+.profileName {
+  margin-left: 10px;
+  h3 {
+    width: fit-content;
+    @include base-semibold;
+    color: $light-2 !important;
+    cursor: pointer;
+  }
+
+  p {
+    width: fit-content;
+    @include small-regular;
+    color: $gray-1 !important;
+    cursor: pointer;
+  }
+}
+
+.bio {
+  margin-left: 10px;
+  p {
+    width: fit-content;
+    @include small-regular;
+    color: $light-2 !important;
+    cursor: pointer;
+  }
+}

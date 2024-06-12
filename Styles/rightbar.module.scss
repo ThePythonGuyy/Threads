@@ -1,5 +1,4 @@
-@import "./_variables.scss";
-@import "./fontStyle";
+@use 'index' as *;
 
 .rightsideBar {
   position: sticky;

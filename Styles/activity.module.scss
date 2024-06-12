@@ -1,0 +1,16 @@
+@use 'index' as *;
+
+.activityContainer{
+    width: 100%;
+}
+
+.activity {
+    margin: 40px;
+    @include flex-col;
+    gap: 20px;
+}
+
+
+
+
+//Activity Card

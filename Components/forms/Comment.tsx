@@ -13,12 +13,12 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-// import { Textarea } from "../ui/textarea";
+
 import styles from "@/Styles/postThread.module.scss";
 import { Button } from "../ui/button";
 import { raleway } from "@/app/fonts";
 import { z } from "zod";
-import { createThread } from "@/lib/actions/thread.action";
+import { addCommentToThread } from "@/lib/actions/thread.action";
 import { Input } from "../ui/input";
 import Image from "next/image";
 
@@ -44,14 +44,14 @@ export default function Comment({
   });
 
   const onSubmit = async (values: z.infer<typeof CommentValidation>) => {
-    // console.log(values);
-    // await createThread({
-    //   text: values.thread,
-    //   author: userId,
-    //   communityId: null,
-    //   path: pathname,
-    // });
-    // router.push('/');
+    await addCommentToThread({
+      threadId,
+      commentText: values.thread,
+      userId: JSON.parse(currentUserId),
+      path: JSON.stringify(pathname),
+    });
+
+    form.reset();
   };
 
   return (
@@ -67,17 +67,17 @@ export default function Comment({
             <FormItem className={styles.commentFormItem}>
               <FormLabel className={styles.commentForm_Label}>
                 <Image
-                src={currentUserImg}
-                alt="Profile Image"
-                width={48}
-                height={48}
-                className={styles.commentForm_profilePhoto}
+                  src={currentUserImg}
+                  alt="Profile Image"
+                  width={48}
+                  height={48}
+                  className={styles.commentForm_profilePhoto}
                 />
               </FormLabel>
               <FormControl className={styles.commentForm_textControl}>
                 <Input
                   className={styles.form_textInput}
-                  style={{paddingLeft: '30px'}}
+                  style={{ paddingLeft: "30px" }}
                   type="text"
                   placeholder="  Comment"
                   {...field}

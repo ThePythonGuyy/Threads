@@ -46,11 +46,12 @@ a{
   margin: 0 auto;
   background-color: $violet-1;
   width: 95%;
+  min-height: 95% !important;
   border-radius: 5px;
   color: $light-1;
   outline: none;
   border: none;
-  opacity: 0.6;
+  opacity: 0.85;
   transition: opacity 0.075s ease-out;
   font-size: 12px;
   padding: 5px 0;

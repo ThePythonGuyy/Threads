@@ -1,6 +1,4 @@
-@import "./_variables.scss";
-@import "./fontStyle";
-
+@use 'index' as *;
 .container {
   width: 70%;
   max-width: 640px;

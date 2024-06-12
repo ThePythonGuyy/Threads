@@ -1,0 +1,51 @@
+@use "index" as *;
+
+.tabsContainer {
+  margin-top: 7vh;
+}
+
+.tab{
+    width: 100%;
+}
+
+.tabList {
+ @include flex-row;
+  min-height: 50px;
+  flex: 1;
+ 
+  gap: 0.75rem;
+
+  background-color: $dark-2 !important;
+  color: $light-2 !important;
+
+  &[data-state="active"] {
+    background-color: #0e0e12 !important;
+    color: $light-2 !important;
+  }
+
+  border: none !important;
+  p{
+    @include small-medium
+  }
+  
+  @include small-break {
+    p {
+        display: none;
+    }
+  }
+}
+
+.threadsCount {
+    width: 20px;
+    height: 20px;
+    @include flex-row;
+    align-items: center !important;
+    background-color: $light-4;
+    color: $light-2;
+    border-radius: 5px;
+    p {
+        margin-top: 3px;
+    }
+
+    
+}

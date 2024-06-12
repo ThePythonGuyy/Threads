@@ -1,6 +1,4 @@
-@import "./_defaults.scss";
-@import "./_fontStyle.scss";
-@import "./_variables.scss";
+@use 'index' as *;
 
 .form_container {
   @include flex-col($algn: flex-start);

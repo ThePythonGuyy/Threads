@@ -1,13 +1,16 @@
-@import "../Styles/_variables.scss";
-@import "../Styles/_defaults.scss";
-@import "../Styles/_fontStyle.scss";
+@use "index" as *;
 
 .card_container {
-  @include flex-col;
+  @include flex-col($algn: flex-start);
   background-color: $dark-2;
-  padding: 16px;
   width: 100%;
   border-radius: 15px;
+
+  
+}
+
+.comment {
+  background-color: $dark-1;
 }
 
 .c1 {
@@ -20,18 +23,20 @@
   gap: 16px;
   height: fit-content;
   position: relative;
+  
 }
 
 .c3 {
   @include flex-col;
   position: relative;
   align-self: stretch;
+  
 }
 
 .profileImg {
   position: relative;
-  height: 3rem;
-  width: 3rem;
+  height: $profileSize;
+  width: $profileSize;
 }
 
 .card_bar {
@@ -45,6 +50,8 @@
   width: 100%;
   @include flex-col($algn: flex-start);
   flex: 1;
+  // background-color: pink !important;
+  padding: 0.5rem 0;
 }
 
 .authorName {

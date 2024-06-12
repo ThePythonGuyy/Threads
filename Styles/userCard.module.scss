@@ -1,0 +1,51 @@
+@use 'index' as *;
+
+.userCard {
+    width: 100%;
+    @include flex-row($jc: space-between);
+    padding: 0 5vw;
+
+    position: relative;
+}
+
+
+  
+  .profile {
+    @include flex-row($jc: flex-start);
+  }
+  
+  .profileImgCont {
+    max-width: $profileSize;
+    max-height: $profileSize;
+    border-radius: 50% !important;
+    
+  }
+  
+  .profileImg {
+    object-fit: cover;
+    border-radius: 50% !important;
+  }
+  
+  .profileName {
+    margin-left: 10px;
+    h3 {
+      width: fit-content;
+      @include base-semibold;
+      color: $light-2 !important;
+      cursor: pointer;
+    }
+  
+    p {
+      width: fit-content;
+      @include small-regular;
+      color: $gray-1 !important;
+      cursor: pointer;
+    }
+  }
+  
+
+  .button {
+    width: 4.5rem;
+    height: 2rem;
+
+  }

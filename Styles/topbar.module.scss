@@ -1,6 +1,4 @@
-@import './_variables.scss';
-@import "./_fontStyle";
-
+@use 'index' as *;
 
 .topNav {
     width: 100%;

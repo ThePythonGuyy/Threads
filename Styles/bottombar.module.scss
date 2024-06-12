@@ -1,4 +1,4 @@
-@import "./_variables.scss";
+@use 'index' as *;
 
 .bottomBar {
     display: none;

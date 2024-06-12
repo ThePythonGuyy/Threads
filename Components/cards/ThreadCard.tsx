@@ -36,10 +36,10 @@ export default function ThreadCard({
   createdAt,
   comments,
   content,
-  isComment,
+  isComment = false,
 }: Props) {
   return (
-    <article className={styles.card_container}>
+    <article className={`${styles.card_container} ${styles.comment}`}>
       <div className={styles.c1}>
         <div className={styles.c2}>
           <div className={styles.c3} id="profile-image">
@@ -48,7 +48,7 @@ export default function ThreadCard({
                 src={author.image}
                 alt="Profile image"
                 fill
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer" , borderRadius: '50%'}}
               />
             </Link>
             <div className={styles.card_bar} />

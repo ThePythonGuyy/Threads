@@ -13,7 +13,7 @@ async function page({ params }: { params: { id: string } }) {
   if (!userInfo.onboarded) redirect("/onboarding");
   const thread = await fetchThreadById(params.id);
   return (
-    <div className={styles.threadDetails_container}>
+    <section className={styles.threadDetails_container}>
       <div>
         <ThreadCard
           key={thread._id}
@@ -30,11 +30,27 @@ async function page({ params }: { params: { id: string } }) {
       <div className={styles.threadComments_container}>
         <Comment 
             threadId={JSON.stringify(thread._id)}
-            currentUserImg={user.imageUrl}
+            currentUserImg={userInfo.image}
             currentUserId={JSON.stringify(userInfo._id)}
         />
       </div>
-    </div>
+      <div className={styles.children}>
+        {thread.children.map((children: any) => (
+           <ThreadCard
+           key={children._id}
+           id={children._id}
+           currentUserId={user?.id || ""}
+           parentId={children.parentId}
+           content={children.text}
+           author={children.author}
+           community={children.community}
+           createdAt={children.createdAt}
+           comments={children.children}
+           isComment = {true}
+         />
+        ))}
+      </div>
+    </section>
   );
 }
 
