@@ -3,6 +3,7 @@ import { currentUser } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 import React from 'react'
 import styles from '@/Styles/activity.module.scss'
+import ActivityCard from '@/Components/cards/ActivityCard';
 
 export default async function page() {
   const user = await currentUser();
@@ -12,6 +13,7 @@ export default async function page() {
   if(!userInfo.onboarded) redirect('/onboarding');
 
   const activitys = await getActivity(userInfo._id);
+  console.log(activitys)
   return (
    <section className={styles.activityContainer}>
     <h1 className="head-text">
@@ -22,9 +24,9 @@ export default async function page() {
       {activitys.length > 0 ? (
         activitys.map((activity) => (
           <ActivityCard 
-          name={activity.name}
-          imgUrl={activity.image}
-          id={activity.id}
+          name={activity.author.name}
+          imageUrl={activity.author.image}
+          parentId={activity.parentId}
         />
         ))
      

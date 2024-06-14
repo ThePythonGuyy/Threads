@@ -141,7 +141,7 @@ export const getActivity = async( userId: string ) => {
 
     const childThreadIds = userThreads.reduce((acc, userThread) => {
       return acc.concat(userThread.children)
-    })
+    },[])
 
     const replies = await Thread.find({
       _id: { $in: childThreadIds },
@@ -149,7 +149,7 @@ export const getActivity = async( userId: string ) => {
     }).populate({
       path: 'author',
       model: User,
-      select: 'name image _id'
+      select: 'id name image _id'
     })
 
     return replies
