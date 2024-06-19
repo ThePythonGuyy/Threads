@@ -19,10 +19,12 @@ import { Button } from "../ui/button";
 import { raleway } from "@/app/fonts";
 import { z } from "zod";
 import { createThread } from "@/lib/actions/thread.action";
+import { useOrganization } from "@clerk/nextjs";
 
 export default function PostThread({ userId }: { userId: string }) {
   const router = useRouter();
   const pathname = usePathname();
+  const { organization }  = useOrganization();
 
   const form = useForm({
     resolver: zodResolver(ThreadValidation),
@@ -33,11 +35,12 @@ export default function PostThread({ userId }: { userId: string }) {
   });
 
   const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
+    
     console.log(values);
     await createThread({
       text: values.thread,
       author: userId,
-      communityId: null,
+      communityId: organization ? organization.id : null,
       path: pathname,
     });
 

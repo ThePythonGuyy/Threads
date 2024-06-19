@@ -89,4 +89,12 @@
   margin-top: 0.25rem;
   @include subtle-medium;
   color: $gray-1;
+  font-size: 30px;
+  background-color: pink !important;
+}
+
+
+.communityDetails {
+  width: 100%;
+  background-color: red;
 }

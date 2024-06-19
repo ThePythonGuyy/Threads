@@ -4,6 +4,7 @@ import Thread from "../models/thread.model";
 import User from "../models/user.model";
 import { connectToDB } from "../mongoose";
 import { fetchUser } from "./user.actions";
+import Community from "../models/community.model";
 
 interface ParamsCreateThread {
   text: string;
@@ -25,22 +26,37 @@ export async function createThread({
   communityId,
   path,
 }: ParamsCreateThread) {
-  connectToDB();
+  
 
   try {
+    connectToDB();
+
+
+
+    const communityObject = await Community.findOne(
+      {id: communityId },
+      { _id: 1 }
+    );
+
     const currentUser = await fetchUser(author);
     author = currentUser._id;
     const createThread = await Thread.create({
       text,
       author,
-      communityId,
+      communityId : communityObject,
       path,
     });
 
     //Updating user model
-    await User.findByIdAndUpdate(currentUser._id, {
+    await User.findByIdAndUpdate(author, {
       $push: { threads: createThread._id },
     });
+
+    if(communityObject){
+      await Community.findByIdAndUpdate(communityObject, {
+        $push: { threads: createThread._id},
+      })
+    }
 
     revalidatePath(path);
   } catch (error: any) {

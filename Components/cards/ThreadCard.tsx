@@ -3,6 +3,7 @@
 import styles from "@/Styles/threadCard.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import { formatDateString } from "@/lib/utils";
 
 interface Props {
   id: string;
@@ -89,12 +90,28 @@ export default function ThreadCard({
               </div>
               {isComment && comments.length > 0 && (
                 <Link href={`/thread/${id}`}>
-                  <p className={styles.noOfComments}>{comments.length}</p>
+                  <p className={styles.noOfComments}>{comments.length}dsaf</p>
                 </Link>
               )}
             </div>
           </section>
         </div>
+              {/* /TODO delete a thread */}
+              {!isComment && community && (
+                <Link href={`/communities/${community.id}`} className={styles.communityDetails}>
+                  <p>{formatDateString(createdAt)} - {community.name}</p>
+
+                  <Image 
+                  src={community.image}
+                  alt={community.name}
+                  height={14}
+                  width={14}
+                  >
+
+                  </Image>
+                </Link>
+              )}
+              
       </div>
     </article>
   );
