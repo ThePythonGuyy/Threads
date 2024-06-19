@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import styles from "@/Styles/threadCard.module.scss";
 import Link from "next/link";
@@ -42,6 +42,8 @@ export default function ThreadCard({
   const name = community ? community.name : author.name;
   const image = community ? community.image: author.image;
   if (community) {
+    console.log(community);
+  } else {
     console.log(community);
   }
   return (
