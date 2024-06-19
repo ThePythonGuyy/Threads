@@ -45,7 +45,7 @@ export async function createThread({
     const createThread = await Thread.create({
       text,
       author,
-      communityId : communityObject,
+      communityId : communityObject._id,
       path,
     });
 
