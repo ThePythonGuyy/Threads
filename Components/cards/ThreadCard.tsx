@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import styles from "@/Styles/threadCard.module.scss";
 import Link from "next/link";
