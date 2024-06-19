@@ -41,6 +41,9 @@ export default function ThreadCard({
 }: Props) {
   const name = community ? community.name : author.name;
   const image = community ? community.image: author.image;
+  if (community) {
+    console.log(community);
+  }
   return (
     <article className={`${styles.card_container} ${styles.comment}`}>
       <div className={styles.c1}>
