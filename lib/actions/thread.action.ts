@@ -77,6 +77,7 @@ export async function fetchThreads(pageNumber = 1, pageSize = 20) {
     .skip(skipAmount)
     .limit(pageSize)
     .populate({ path: "author", model: User })
+    .populate({ path: "community", model: Community})
     .populate({
       path: "children",
       populate: {

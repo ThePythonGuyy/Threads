@@ -39,6 +39,8 @@ export default function ThreadCard({
   content,
   isComment = false,
 }: Props) {
+  const name = community ? community.name : author.name;
+  const image = community ? community.image: author.image;
   return (
     <article className={`${styles.card_container} ${styles.comment}`}>
       <div className={styles.c1}>
@@ -46,7 +48,7 @@ export default function ThreadCard({
           <div className={styles.c3} id="profile-image">
             <Link href={`/profile/${author.id}`} className={styles.profileImg}>
               <Image
-                src={author.image}
+                src={image}
                 alt="Profile image"
                 fill
                 style={{ cursor: "pointer" , borderRadius: '50%'}}
@@ -56,7 +58,7 @@ export default function ThreadCard({
           </div>
           <section className={styles.c4} id="thread-content">
             <Link href={`/profile/${author.id}`} className={styles.authorName}>
-              <h4>{author.name}</h4>
+              <h4>{name}</h4>
             </Link>
             <p className={styles.thread_content}>{content}</p>
             <div className={styles.threadResponse_container}>
