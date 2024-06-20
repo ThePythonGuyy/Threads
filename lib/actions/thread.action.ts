@@ -42,10 +42,11 @@ export async function createThread({
 
     const currentUser = await fetchUser(author);
     author = currentUser._id;
+    console.log("actions author", author);
     const createThread = await Thread.create({
       text,
       author,
-      communityId : communityObject._id,
+      communityId : communityObject?._id,
       path,
     });
 
