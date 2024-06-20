@@ -38,7 +38,7 @@ export async function createThread({
       { _id: 1 }
     );
 
-    console.log("In actions",communityObject)
+    console.log("In actions",communityObject._id)
 
     const currentUser = await fetchUser(author);
     author = currentUser._id;
