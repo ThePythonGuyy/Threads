@@ -25,9 +25,7 @@ export default function PostThread({ userId }: { userId: string }) {
   const router = useRouter();
   const pathname = usePathname();
   const { organization }  = useOrganization();
-  if(organization) {
-    console.log(organization)
-  }
+
 
   const form = useForm({
     resolver: zodResolver(ThreadValidation),

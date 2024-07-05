@@ -9,6 +9,7 @@ interface Props {
   username: string;
   imgUrl: string;
   bio: string;
+  type?: 'User' | 'Community'
 }
 
 export default function ProfileHeader({
@@ -18,6 +19,7 @@ export default function ProfileHeader({
   username,
   imgUrl,
   bio,
+  type,
 }: Props) {
   return (
     <section className={styles.profileContainer}>

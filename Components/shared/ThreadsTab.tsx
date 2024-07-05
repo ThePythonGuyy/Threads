@@ -21,14 +21,11 @@ export default async function ThreadsTab({ currentUserId, accountId, accounType 
             currentUserId={currentUserId}
             content={thread.text}
             parentId={thread.parentId}
-            author={
-                accounType === 'User' 
-                ? { name: result.name, image: result.image, id: result.id }
-                : { name: thread.author.name, image: thread.author.image, id: thread.author.id}
-            }
+            author={thread.author}
             community={thread.community}
             createdAt={thread.createdAt}
             comments={thread.children}
+            isProfilePage={true}
           />
         ))}
    </section>

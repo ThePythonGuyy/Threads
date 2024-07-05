@@ -4,6 +4,7 @@ import styles from "@/Styles/threadCard.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { formatDateString } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 interface Props {
   id: string;
@@ -14,6 +15,7 @@ interface Props {
     name: string;
     image: string;
     id: string;
+    username: string;
   };
   createdAt: string;
   community: {
@@ -27,6 +29,7 @@ interface Props {
     };
   }[];
   isComment?: boolean;
+  isProfilePage?: boolean;
 }
 export default function ThreadCard({
   id,
@@ -38,16 +41,22 @@ export default function ThreadCard({
   comments,
   content,
   isComment = false,
+  isProfilePage = false,
 }: Props) {
-  const name = community ? community.name : author.name;
-  const image = community ? community.image: author.image;
-  if (community) {
-    console.log(community);
-  } else {
-    console.log(community);
-  }
+  const image = community ? community.image : author.image;
+  const nameEle = () => {
+    if (community) {
+      return <h4>{community.name} { } <sub className={styles.nameSub}> community</sub></h4>;
+    } else {
+      return <h4>{author.name}</h4>;
+    }
+  };
+
+
   return (
-    <article className={`${styles.card_container} ${styles.comment}`}>
+    <article
+      className={`${styles.card_container} ${isComment || isProfilePage ? styles.comment : ""}`}
+    >
       <div className={styles.c1}>
         <div className={styles.c2}>
           <div className={styles.c3} id="profile-image">
@@ -56,14 +65,14 @@ export default function ThreadCard({
                 src={image}
                 alt="Profile image"
                 fill
-                style={{ cursor: "pointer" , borderRadius: '50%'}}
+                style={{ cursor: "pointer", borderRadius: "50%" }}
               />
             </Link>
             <div className={styles.card_bar} />
           </div>
           <section className={styles.c4} id="thread-content">
             <Link href={`/profile/${author.id}`} className={styles.authorName}>
-              <h4>{name}</h4>
+              {nameEle()}
             </Link>
             <p className={styles.thread_content}>{content}</p>
             <div className={styles.threadResponse_container}>
@@ -103,22 +112,19 @@ export default function ThreadCard({
             </div>
           </section>
         </div>
-              {/* /TODO delete a thread */}
-              {!isComment && community && (
-                <Link href={`/communities/${community.id}`} className={styles.communityDetails}>
-                  <p>{formatDateString(createdAt)} - {community.name}</p>
-
-                  <Image 
-                  src={community.image}
-                  alt={community.name}
-                  height={14}
-                  width={14}
-                  >
-
-                  </Image>
-                </Link>
-              )}
-              
+        {/* /TODO delete a thread */}
+        <div className={styles.communityPostInfo}>
+          {!isComment && community && (
+            <Link
+              href={`/communities/${community.id}`}
+              className={styles.communityDetails}
+            >
+              <p>
+                {formatDateString(createdAt)} - @{author.username}
+              </p>
+            </Link>
+          )}
+        </div>
       </div>
     </article>
   );
