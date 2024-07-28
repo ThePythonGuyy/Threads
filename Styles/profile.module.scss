@@ -28,6 +28,7 @@
     @include small-medium
   }
   
+  
   @include small-break {
     p {
         display: none;
@@ -45,7 +46,5 @@
     border-radius: 5px;
     p {
         margin-top: 3px;
-    }
-
-    
+    }   
 }

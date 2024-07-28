@@ -13,7 +13,7 @@ export default async function Home() {
   if (!userInfo?.onboarded) redirect("/onboarding");
   
   return (
-    <section>
+    <section className="home">
       <h1 className="head-text">Home</h1>
       <div className={styles.thread_container}>
         {result.threads.length === 0 ? (

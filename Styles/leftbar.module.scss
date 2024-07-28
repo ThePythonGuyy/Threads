@@ -1,4 +1,4 @@
-@use 'index' as *;
+@use "index" as *;
 
 .container {
   position: sticky;
@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   flex-flow: column nowrap;
-  height: 100vh;
+  height: 92vh;
   min-width: 200px;
   width: 200px;
   justify-content: space-between;
@@ -18,62 +18,60 @@
   padding-bottom: 5px;
   padding-top: 28px;
   color: white;
+  padding-bottom: 3vh;
 }
 
-
 .menuWrap {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    flex: 1;
-    padding: 0 10px;
-    width: 100%;
-    gap: 4vh;
-    // background-color: pink;
-
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  flex: 1;
+  padding: 0 10px;
+  width: 100%;
+  gap: 4vh;
+  // background-color: pink;
 }
 
 .menu {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    width: 100%;
-    padding: 6px 8px;
-    gap: 18px;
-    border-radius: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
+  padding: 6px 8px;
+  gap: 18px;
+  border-radius: 10px;
 
-    p{
-        color: $light-2;
-        font-size: 13px;
-        text-align: center;
-    }
+  p {
+    color: $light-2;
+    font-size: 13px;
+    text-align: center;
+  }
 }
 
 .menuActive {
-    background-color: $violet-1;
+  background-color: $violet-1;
 }
 
 .logout {
-    cursor: pointer;
-    padding-left: 10%;
-    width: 100%;
+  cursor: pointer;
+  padding-left: 10%;
+  width: 100%;
 }
 
 .logoutButton {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    
-    p{
-        font-size: 14px;
-    }
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  p {
+    font-size: 14px;
+  }
 }
 
-
-
-@media all and (max-width: 768px) and (max-height: 1024px) and (orientation:portrait) {
-    .container {
-        display: none;
-    }
+@media all and (max-width: 768px) and (max-height: 1024px) and (orientation: portrait) {
+  .container {
+    display: none;
+  }
 }
-@media all and (max-width: 1024px) and (max-height: 768px) and (orientation:landscape) {}
+@media all and (max-width: 1024px) and (max-height: 768px) and (orientation: landscape) {
+}

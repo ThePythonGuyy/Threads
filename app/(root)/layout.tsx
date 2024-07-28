@@ -24,7 +24,7 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`${inter.className} rootContainer`}>
           <Topbar />
 
           <main className="root-container">
