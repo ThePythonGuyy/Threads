@@ -19,6 +19,10 @@
   padding-top: 28px;
   color: white;
   padding-bottom: 3vh;
+
+  @include mid-break {
+    display: none;
+  }
 }
 
 .menuWrap {
@@ -68,10 +72,3 @@
   }
 }
 
-@media all and (max-width: 768px) and (max-height: 1024px) and (orientation: portrait) {
-  .container {
-    display: none;
-  }
-}
-@media all and (max-width: 1024px) and (max-height: 768px) and (orientation: landscape) {
-}

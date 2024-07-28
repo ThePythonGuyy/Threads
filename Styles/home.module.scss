@@ -3,4 +3,5 @@
 .thread_container {
     @include flex-col;
     gap: 2vh;
+    padding: 1vw;
 }

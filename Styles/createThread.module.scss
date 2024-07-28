@@ -12,4 +12,7 @@
 
 .postThread_container {
     width: 50%;
+    @include mid-break {
+      width: 100%;
+    }
 }
