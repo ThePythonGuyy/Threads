@@ -15,9 +15,13 @@
     margin: auto;
     gap: 0.7vw;
     color: $light-1;
-
+    margin-left: 51vw;
     h3 {
         @include heading3-bold;
+    }
+
+    @include mid-break {
+        margin-left: 38vw;
     }
 }
 
@@ -30,6 +34,10 @@
     background-color: red;
     height:100%;
     display: none;
+
+    @include mid-break {
+        // display: block;
+    }
 }
 
 .organizationTab {
@@ -38,5 +46,9 @@
     display: flex;
     align-items: center;
     margin-right: 1vw;
+
+    @include mid-break {
+        display: none;
+    }
     // background-color: red;
 }

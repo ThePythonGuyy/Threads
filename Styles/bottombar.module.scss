@@ -10,8 +10,14 @@
     border: 0.5px solid rgba(255, 255, 255, 0.438);
     border-radius: 15px 15px 0 0;
     height: 6vh;
+    margin-top: 3vh;
     @include mid-break{
         display: block;
+        height: 8vh;
+    }
+
+    @include small-break {
+        height: 6vh;
     }
 }
 

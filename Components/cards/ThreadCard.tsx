@@ -52,6 +52,8 @@ export default function ThreadCard({
     }
   };
 
+  const profileLink : string = community ? `/communities/${community.id}`: `/profile/${author.id}`;
+
 
   return (
     <article
@@ -60,7 +62,7 @@ export default function ThreadCard({
       <div className={styles.c1}>
         <div className={styles.c2}>
           <div className={styles.c3} id="profile-image">
-            <Link href={`/profile/${author.id}`} className={styles.profileImg}>
+            <Link href={profileLink} className={styles.profileImg}>
               <Image
                 src={image}
                 alt="Profile image"
@@ -71,7 +73,7 @@ export default function ThreadCard({
             <div className={styles.card_bar} />
           </div>
           <section className={styles.c4} id="thread-content">
-            <Link href={`/profile/${author.id}`} className={styles.authorName}>
+            <Link href={profileLink} className={styles.authorName}>
               {nameEle()}
             </Link>
             <p className={styles.thread_content}>{content}</p>
@@ -104,9 +106,11 @@ export default function ThreadCard({
                   height={24}
                 />
               </div>
-              {isComment && comments.length > 0 && (
-                <Link href={`/thread/${id}`}>
-                  <p className={styles.noOfComments}>{comments.length}dsaf</p>
+              {!isComment && comments.length > 0 && (
+                <Link href={`/thread/${id}`} className={styles.commentsCount}>
+                  <p >{comments.length} {
+                    comments.length > 1 ? (<span>replies</span>) : (<span>reply</span>) 
+                    }</p>
                 </Link>
               )}
             </div>
@@ -121,6 +125,16 @@ export default function ThreadCard({
             >
               <p>
                 {formatDateString(createdAt)} - @{author.username}
+              </p>
+            </Link>
+          )}
+              {!community && (
+            <Link
+              href={``}
+              className={styles.communityDetails}
+            >
+              <p>
+                {formatDateString(createdAt)} 
               </p>
             </Link>
           )}

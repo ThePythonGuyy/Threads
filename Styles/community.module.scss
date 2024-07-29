@@ -1,0 +1,80 @@
+@use "index" as *;
+
+.communityContainer {
+  padding: 4vh 7vw;
+}
+
+.communityList {
+  width: 100%;
+  margin-top: 8vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+
+//communityCard
+
+.cardContainer {
+  @include flex-col($jc: space-between);
+  background-color: $dark-4;
+  width: 370px;
+  height: 200px;
+  padding: 15px 20px;
+  border-radius: 15px;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.profile {
+  @include flex-row($jc: flex-start);
+  width: 100%;
+
+}
+
+.profileImgCont {
+  max-width: $profileSize;
+  max-height: $profileSize;
+  border-radius: 50% !important;
+}
+
+.profileImg {
+  object-fit: cover;
+  border-radius: 50% !important;
+}
+
+.profileName {
+  margin-left: 10px;
+  h3 {
+    width: fit-content;
+    @include base-semibold;
+    color: $light-2 !important;
+    cursor: pointer;
+  }
+
+  p {
+    width: fit-content;
+    @include small-regular;
+    color: $gray-1 !important;
+    cursor: pointer;
+  }
+}
+
+
+.bio {
+    width: 100%;
+    text-align: left;
+    @include base-regular;
+    color: rgba(255, 255, 255, 0.71);
+
+}
+
+.more {
+    width: 100%;
+    @include flex-row($jc: left);
+}
+
+
+.button {
+    width: 4.5rem;
+    height: 2rem;
+
+  }

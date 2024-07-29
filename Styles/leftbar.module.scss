@@ -47,7 +47,7 @@
 
   p {
     color: $light-2;
-    font-size: 13px;
+    @include base-medium;
     text-align: center;
   }
 }

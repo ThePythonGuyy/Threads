@@ -45,6 +45,10 @@ a {
   position: relative;
 
   overflow-y: scroll;
+
+  @include mid-break {
+    padding-bottom: 10vh;
+  }
 }
 
 .form_submitButton {
@@ -73,6 +77,7 @@ a {
   color: $light-1;
   text-align: center;
   margin-bottom: 3vh;
+
 }
 
 .authContainer {

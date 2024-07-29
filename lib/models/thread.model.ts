@@ -24,6 +24,14 @@ const threadSchema = new mongoose.Schema({
       ref: "Thread",
     },
   ],
+},{
+  strict: true, // or any other default option you need
+  strictPopulate: false,
+  typeKey: 'type',
+  id: true,
+  _id: true,
+  timestamps: true,
+  versionKey: false,
 });
 
 const Thread = mongoose.models.Thread || mongoose.model("Thread", threadSchema);

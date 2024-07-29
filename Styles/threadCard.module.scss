@@ -92,13 +92,7 @@
   }
 }
 
-.noOfComments {
-  margin-top: 0.25rem;
-  @include subtle-medium;
-  color: $gray-1;
-  font-size: 30px;
-  background-color: pink !important;
-}
+
 
 
 .communityDetails {
@@ -110,4 +104,16 @@
 
 .communityPostInfo{
   margin-top: 7px;
+}
+
+.commentsCount {
+  text-decoration: none;
+  width: 100%;
+  @include small-medium;
+  p {
+    color: rgba(255, 255, 255, 0.632);
+    span {
+      // color: $gray-1;
+    }
+  }
 }

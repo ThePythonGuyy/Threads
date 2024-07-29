@@ -5,8 +5,9 @@ import ThreadCard from "@/Components/cards/ThreadCard";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { fetchUser } from "@/lib/actions/user.actions";
+import { jaoren } from "../fonts";
 export default async function Home() {
-  const result = await fetchThreads(1, 30);
+  const result = await fetchThreads(1, 5);
   const user = await currentUser();
   if (!user) redirect('/sign-in');
   const userInfo = await fetchUser(user.id);
@@ -14,7 +15,7 @@ export default async function Home() {
   
   return (
     <section className="home">
-      <h1 className="head-text">Home</h1>
+      <h1 className={`head-text`}>Home</h1>
       <div className={styles.thread_container}>
         {result.threads.length === 0 ? (
           <p>No threads found</p>

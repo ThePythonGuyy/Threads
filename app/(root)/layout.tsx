@@ -7,6 +7,7 @@ import LeftSidebar from "@/Components/shared/LeftSidebar";
 import RightSidebar from "@/Components/shared/RightSidebar";
 import Bottombar from "@/Components/shared/Bottombar";
 import { dark } from "@clerk/themes";
+
 export const metadata = {
   title: "Threads",
   description: "A Meta Threads Application",

@@ -22,6 +22,14 @@ const userSchema = new mongoose.Schema({
       ref: "Community",
     },
   ],
+},{
+  strict: true, // or any other default option you need
+  strictPopulate: false,
+  typeKey: 'type',
+  id: true,
+  _id: true,
+  timestamps: true,
+  versionKey: false,
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);

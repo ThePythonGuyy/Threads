@@ -3,14 +3,15 @@ import { redirect } from 'next/navigation';
 import styles from '@/Styles/threadsTab.module.scss'
 import React from 'react'
 import ThreadCard from '../cards/ThreadCard';
+import { fetchCommunityPosts } from '@/lib/actions/community.action';
 
 interface Props {
     currentUserId: string;
     accountId: string;
-    accounType: string;
+    accounType: 'User' | 'Community';
 }
 export default async function ThreadsTab({ currentUserId, accountId, accounType } : Props) {
-    let result = await fetchUserThreads(accountId);
+    let result = accounType === 'User' ? await fetchUserThreads(accountId) : await fetchCommunityPosts(accountId);
     if(!result) redirect('/');
     return (
    <section className={styles.container}>
