@@ -6,12 +6,15 @@
   padding: 20px 10px;
   display: flex;
   flex-flow: column nowrap;
-  // background-color: red;
+  transform: scale(75%);
+  
   justify-content: end;
 
   h1 {
     @include heading2-bold;
+    margin: 3vh 0;
     color: $light-1;
+    text-align: center;
   }
 
   p {

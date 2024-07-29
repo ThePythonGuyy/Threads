@@ -83,7 +83,8 @@ a {
 .authContainer {
   width: 100vw;
   height: 100vh;
-  overflow: auto;
+  max-height: 100vh;
+  overflow: hidden;
   @include flex-row;
   background-color: black;
 

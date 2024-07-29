@@ -68,20 +68,29 @@ export const fetchUser = async(userId: string) => {
 export const fetchUserThreads = async(userId: string) => {
   try {
     connectToDB();
-    const  threads = await User.findOne({ id: userId })
+    const threads = await User.findOne({ id: userId })
     .populate({
       path: 'threads',
       model: Thread,
-      populate: {
-        path: 'children',
-        model: Thread,
-        populate: {
+      populate: [
+        {
+          path: 'children',
+          model: Thread,
+          populate: {
+            path: 'author',
+            model: User,
+            select: 'name image id username',
+          },
+        },
+        {
           path: 'author',
           model: User,
-          select : 'name image id username'
-        }
-      }
-    })
+          select: 'name image id username',
+        },
+      ],
+    });
+
+    console.log(threads);
     return threads;
   } catch (error: any) {
     throw new Error(`Faile to fetch user threads: ${error.message}`)
